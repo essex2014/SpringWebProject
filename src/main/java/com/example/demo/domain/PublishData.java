@@ -9,8 +9,14 @@ public class PublishData {
 	public String password;
 	public String destination;
 	public String[] messagingTypes;
-	public MultipartFile file;
+	public MultipartFile orderFile;
 	
+	public MultipartFile getOrderFile() {
+		return orderFile;
+	}
+	public void setOrderFile(MultipartFile orderFile) {
+		this.orderFile = orderFile;
+	}
 	public String getConnectionString() {
 		return connectionString;
 	}
@@ -41,12 +47,7 @@ public class PublishData {
 	public void setMessagingTypes(String[] messagingTypes) {
 		this.messagingTypes = messagingTypes;
 	}
-	public MultipartFile getFile() {
-		return file;
-	}
-	public void setFile(MultipartFile file) {
-		this.file = file;
-	}
+	
 	
 	
 	

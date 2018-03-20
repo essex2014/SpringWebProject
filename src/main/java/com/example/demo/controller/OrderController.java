@@ -26,8 +26,6 @@ public class OrderController {
 
 	private static final Logger logger = LoggerFactory.getLogger(OrderController.class);
 	
-	@Value("${spring.application.name}")
-	String appName;
 	
 	@Resource
 	XMLConverter xmlConverter;
@@ -43,11 +41,11 @@ public class OrderController {
         return "publisher";
     }
 	
-	@PostMapping("/publisher")
+	@PostMapping("/publish")
 	public String doRegister(@ModelAttribute PublishData formData,ModelMap map,HttpSession session) {
 		try {
 			//Validate the input values entered by user
-			if (formData.getFile().isEmpty()) {
+			if (formData.getOrderFile().isEmpty()) {
 				logger.error("Invalid file uploaded by user");
 				return "failure";
 			}
@@ -60,15 +58,16 @@ public class OrderController {
 				return "failure";
 			}
 			
-			String is = new String(formData.getFile().getBytes());
+			String is = new String(formData.getOrderFile().getBytes());
 			String lines[] = StringUtils.split(is,System.lineSeparator());
-			for (int i = 0; i < lines.length; i++) {
+			for (int i = 1; i < lines.length; i++) {
 				Order order = (Order)xmlConverter.convertFromXMLToObject(lines[i]);
 				send(formData,order);
 				
 			}
 			
 		} catch (Exception e) {
+			e.printStackTrace();
 			return "failure";
 		}
 		return "success";

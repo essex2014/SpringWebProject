@@ -14,7 +14,6 @@ import org.springframework.oxm.Marshaller;
 import org.springframework.oxm.Unmarshaller;
 import org.springframework.stereotype.Component;
 
-@Component
 public class XMLConverter {
 
 	private Marshaller marshaller;

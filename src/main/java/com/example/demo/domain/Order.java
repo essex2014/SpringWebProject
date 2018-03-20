@@ -13,42 +13,8 @@ public class Order implements Serializable{
 	public String market;
 	public String action;
 	public int size;
-	public String getAccont() {
-		return accont;
-	}
-	public void setAccont(String accont) {
-		this.accont = accont;
-	}
-	public String getSubmittedAt() {
-		return submittedAt;
-	}
-	public void setSubmittedAt(String submittedAt) {
-		this.submittedAt = submittedAt;
-	}
-	public String getReceivedAt() {
-		return receivedAt;
-	}
-	public void setReceivedAt(String receivedAt) {
-		this.receivedAt = receivedAt;
-	}
-	public String getMarket() {
-		return market;
-	}
-	public void setMarket(String market) {
-		this.market = market;
-	}
-	public String getAction() {
-		return action;
-	}
-	public void setAction(String action) {
-		this.action = action;
-	}
-	public int getSize() {
-		return size;
-	}
-	public void setSize(int size) {
-		this.size = size;
-	}
+	public Order() {}
+	
 	public Order(String accont, String submittedAt, String receivedAt, String market, String action, int size) {
 		super();
 		this.accont = accont;
